@@ -1,12 +1,79 @@
 
-/* 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #ddd;
+  }
+  
+  h1 {
+    font-size: 4em;
+    color: #ddd;
+    text-transform: lowercase;
+    font-weight: lighter;
+  }
+  
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+  .list-group {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    background-color: white;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f7f7f7;
+  }
+  
 
-*/
+  .btn-danger {
+    background-color: transparent;
+    border: none;
+    color: #fed8d8;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    color: #ff8989;
+  }
+  
+  .btn-danger:focus {
+    outline: none;
+  }
+  
+
+  .input-group input {
+    font-size: 1.2em;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+  }
+  
+
+  .input-group input:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid #bbb;
+  }
+  
+.task-counter {
+    font-size: 0.9em;
+    color: #aaa;
+    text-align: left;
+    margin-top: 10px;
+  }
