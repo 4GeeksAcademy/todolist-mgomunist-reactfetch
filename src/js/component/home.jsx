@@ -68,6 +68,24 @@ const Home = () => {
     }
   };
 
+  // Borrar todas las tareas
+  const deleteAllTasks = async () => {
+    const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar todas las tareas?");
+    if (confirmDelete) {
+      try {
+        await Promise.all(tasks.map((task) => {
+          return fetch(`https://playground.4geeks.com/todo/todos/${task.id}`, {
+            method: "DELETE",
+          });
+        }));
+        setTasks([]); // Limpiar la lista de tareas en el estado
+        console.log("Todas las tareas han sido eliminadas.");
+      } catch (error) {
+        console.log("Error al eliminar todas las tareas:", error);
+      }
+    }
+  };
+
   const handleAddTask = (e) => {
     if (e.key === "Enter" && inputValue.trim()) {
       saveTask(inputValue.trim());
@@ -116,6 +134,12 @@ const Home = () => {
           onKeyDown={handleAddTask}
         />
       </div>
+      {/* Mostrar el botón solo si hay tareas */}
+      {tasks.length > 0 && (
+        <button className="btn btn-danger mb-3" onClick={deleteAllTasks}>
+          Eliminar todas las tareas
+        </button>
+      )}
       <ul className="list-group">
         {tasks.map((task, index) => (
           <TodoItem key={index} task={task} />
